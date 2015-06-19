@@ -33,7 +33,7 @@ public class Penjualan{
 			}
 			kodeTRANS.add(idtr);
 			System.out.println("Kode Transaksi : "+idtr);
-				int xxx=0;
+				int jum_trans=0;
 				do{
 				System.out.print("Masukan ID Barang : ");
 				String idbarang = br.readLine();
@@ -49,7 +49,7 @@ public class Penjualan{
 					jualQTY.add(qtybarang);
 					jualHARGA.add(HARGA.elementAt(urutan));
 					subTOTAL.add(st);
-					xxx++;
+					jum_trans++;
 					}else{
 					ada = false;
 					System.out.println("ID Barang "+idbarang+" tidak ditemukan!");
@@ -61,7 +61,7 @@ public class Penjualan{
 					}else{
 					ada = true;
 					System.out.println("Terima kasih telah berbelanja.");
-					JTRANS.add(xxx);
+					JTRANS.add(jum_trans);
 					}
 				}while(ada==false);
 			break;

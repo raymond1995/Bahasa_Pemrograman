@@ -12,7 +12,6 @@ public class BrgMng {
 	public static void brgmng() throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int pil = 0;
-
 		do {
 			System.out.println("==========================");
 			System.out.println("||     KONTROL BARANG   ||");
@@ -20,8 +19,9 @@ public class BrgMng {
 			System.out.println("1. Tambah barang");
 			System.out.println("2. Hapus barang");
 			System.out.println("3. Ubah barang");
-			System.out.println("4. Tampilkan semua barang");
-			System.out.println("5. Exit");
+			System.out.println("4. Cari data barang");
+			System.out.println("5. Tampilkan semua barang");
+			System.out.println("6. Exit");
 
 			System.out.print("Pilihlah menu [1-5] : ");
 			pil = Integer.parseInt(br.readLine());
@@ -59,7 +59,6 @@ public class BrgMng {
 				break;
 
 			case 2:
-				System.out.println("Hapus Barang");
 				int indexunhapus;
 				String userhapus;
 				String userhapuspil;
@@ -118,8 +117,37 @@ public class BrgMng {
 					}
 				} while (ubahbarang == false);
 				break;
-
+				
 			case 4:
+			boolean ulangi = false;
+			System.out.println("=============================");
+			System.out.println("  ID BARANG YANG TERDAFTAR   ");
+			System.out.println("=============================");
+			for(int i = 0 ; i<barangID.size(); i++){
+				System.out.print(" "+barangID.elementAt(i)+" ");
+			}
+			System.out.println();
+			System.out.println();
+			System.out.println();
+			do{
+			System.out.print("Masukan ID Barang : ");
+			String cari = br.readLine();
+			int urut = 0;
+			if(barangID.contains(cari)){
+			urut = barangID.indexOf(cari);
+			System.out.println("Nama  Barang : "+barangNAMA.elementAt(urut));
+			System.out.println("Harga Barang : Rp."+barangHARGA.elementAt(urut)+",-");
+			System.out.println();
+			ulangi = true;
+			}else{
+			System.out.println("Data barang dengan ID '"+cari+"' tidak ditemukan!");
+			System.out.println();
+			ulangi = false;
+				}
+			}while(ulangi==false);
+			break;
+
+			case 5:
 				int i;
 				System.out
 						.println("=====================================================================");
@@ -139,7 +167,7 @@ public class BrgMng {
 			}
 		}
 
-		while (pil < 5);
+		while (pil < 6);
 	}
 
 	public static int cari(Vector v, String kata) {

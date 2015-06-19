@@ -1,6 +1,6 @@
 import java.util.*;
 import java.io.*;
-
+import java.text.*;
 public class PLAY {
 
 	public static int cari(Vector v, String kata) {
@@ -18,6 +18,9 @@ public class PLAY {
 	}
 
 	public static void main(String[] args) throws IOException {
+		 DateFormat tgl = new SimpleDateFormat("dd/MM/yyyy");
+		 DateFormat wkt = new SimpleDateFormat("HH:mm:ss");
+		 Date date = new Date ();
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		boolean ceklogin = false;
 		Vector<String> username = new Vector<String>();
@@ -245,6 +248,12 @@ public class PLAY {
 								int z=0;
 								int y=0;
 								int total = 0;
+								System.out.println("=====================================================================");
+								System.out.println("            L A P O R A N               T R A N S A K S I            ");
+								System.out.println("=====================================================================");
+								System.out.println("Tanggal Transaksi : "+tgl.format(date));
+								System.out.println("Jam     Transaksi : "+wkt.format(date));
+								System.out.println("=====================================================================");
 								for(int j = 0 ; j<Penjualan.kodeTRANS.size(); j++){
 								System.out.println("Kode Transaksi : "+Penjualan.kodeTRANS.elementAt(j));
 								System.out.println("=====================================================================");
@@ -261,7 +270,8 @@ public class PLAY {
 								for(int k = 0 ; k<Penjualan.subTOTAL.size(); k++){
 									total += Integer.parseInt(Penjualan.subTOTAL.elementAt(k).toString());
 								}
-								System.out.println("Total Omset : "+total);
+								System.out.println();
+								System.out.println("Total Omset : Rp."+total+",-");
 								System.out.println();
 								break;
 							}
